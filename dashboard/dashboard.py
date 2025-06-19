@@ -32,7 +32,7 @@ def run_dashboard():
     @st.cache_data
 
     def load_data():
-        df = pd.read_csv("data/BD_LCG_2017_CN.csv")
+        df = pd.read_csv("data/BD.csv")
         df["Fecha"] = pd.to_datetime(df["Fecha"])
         df["Trimestre"] = df["Fecha"].dt.to_period("Q").astype(str)
         return df
