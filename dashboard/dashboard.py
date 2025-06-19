@@ -32,7 +32,9 @@ def run_dashboard():
     @st.cache_data
 
     def load_data():
-        df = pd.read_csv("data/BD.csv")
+        current_dir = os.path.dirname(__file__)
+        file_path = os.path.join(current_dir, "data/BD.csv")
+        df = pd.read_csv(file_path)
         df["Fecha"] = pd.to_datetime(df["Fecha"])
         df["Trimestre"] = df["Fecha"].dt.to_period("Q").astype(str)
         return df
